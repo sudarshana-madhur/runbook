@@ -1,4 +1,4 @@
-# runbook
+# Runbook
 
 Runbook is an Android utility application designed to bundle various useful tools into a single, convenient interface. It aims to simplify specific digital tasks with privacy-focused, local-processing tools.
 
