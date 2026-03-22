@@ -7,6 +7,7 @@ class DashboardScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView(
+      padding: const EdgeInsets.all(16.0),
       children: [
         Card(
           child: ListTile(

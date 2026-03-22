@@ -22,7 +22,15 @@ class _SettingScreenState extends State<SettingScreen> {
   @override
   Widget build(BuildContext context) {
     return ListView(
-      children: [ListTile(title: Text('Version'), trailing: Text(_appVersion))],
+      padding: const EdgeInsets.all(16),
+      children: [
+        Card(
+          child: ListTile(
+            title: const Text('Version'),
+            trailing: Text(_appVersion),
+          ),
+        ),
+      ],
     );
   }
 }
