@@ -15,7 +15,7 @@ class DashboardScreen extends StatelessWidget {
               width: 30,
               height: 30,
               child: SvgPicture.asset(
-                'icons/insta.svg',
+                'assets/icons/insta.svg',
                 fit: BoxFit.contain,
                 colorFilter: ColorFilter.mode(
                   Theme.of(context).colorScheme.onSurfaceVariant,
