@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:file_picker/file_picker.dart';
 import '../services/extract_unfollowers.dart';
 
@@ -213,10 +214,25 @@ class _UnfollowerHunterScreenState extends State<UnfollowerHunterScreen> {
                   shrinkWrap: true,
                   physics: const NeverScrollableScrollPhysics(),
                   itemCount: _results!.length,
-                  itemBuilder: (context, index) => ListTile(
-                    leading: const Icon(Icons.person_outline),
-                    title: Text(_results![index]),
-                  ),
+                  itemBuilder: (context, index) {
+                    final username = _results![index];
+                    return ListTile(
+                      leading: const Icon(Icons.person_outline),
+                      title: Text(username),
+                      trailing: const Icon(Icons.copy, size: 20),
+                      onTap: () async {
+                        await Clipboard.setData(ClipboardData(text: username));
+                        if (context.mounted) {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(
+                              content: Text('$username copied to clipboard'),
+                              duration: const Duration(seconds: 2),
+                            ),
+                          );
+                        }
+                      },
+                    );
+                  },
                 ),
               ] else
                 Card(
